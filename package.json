@@ -1,0 +1,27 @@
+{
+  "name": "fortune-localstorage",
+  "version": "0.0.1",
+  "description": "Fortune.js adapter for local storage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BillowLabs/fortune-localstorage.git"
+  },
+  "keywords": [
+    "Fortune.js",
+    "fortune.js",
+    "local storage",
+    "localStorage",
+    "localstorage",
+    "adapter"
+  ],
+  "author": "Billow Labs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BillowLabs/fortune-localstorage/issues"
+  },
+  "homepage": "https://github.com/BillowLabs/fortune-localstorage#readme"
+}
