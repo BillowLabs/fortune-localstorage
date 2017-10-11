@@ -1,5 +1,5 @@
 node_modules/
-bin/
-scratch/
+src/
 *.log
+**/tests.js
 .DS_Store
