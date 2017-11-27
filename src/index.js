@@ -6,7 +6,6 @@ module.exports = function (Adapter) {
   var storage
 
   function LocalStorageAdapter (properties) {
-    log.info('here')
     // Default the properites if none were provided
     properties = properties || { }
 
@@ -28,6 +27,7 @@ module.exports = function (Adapter) {
       storage = new LocalStorageDB('fortune', properties.options.localStorage)
       Object.getOwnPropertyNames(properties.recordTypes).forEach(recordType => {
         let fields = Object.getOwnPropertyNames(properties.recordTypes[recordType])
+        if (storage.tableExists(recordType)) return
         storage.createTable(recordType, fields)
       })
     }
