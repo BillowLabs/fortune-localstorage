@@ -73,13 +73,26 @@ module.exports = function (Adapter) {
 
     if (!storage) return MemoryAdapter.prototype.find.call(this, type, ids, options)
 
+    options = options || {}
+    options.offset = options.start
+    if (options.sort) {
+      options.sort = Object.getOwnPropertyNames(options.sort).map(name => {
+        return [ name, options.sort[name] ? 'ASC' : 'DESC' ]
+      })
+    }
+
     return new Promise(resolve => {
-      let found = storage.queryAll(type)
+      let found = storage.queryAll(type, options)
       // Some forms of storage (node-localstorage for example) use capital ID for records
       // while fortune requires a lower case id.
       found.forEach(record => {
         record.id = record.id||record.ID
       })
+
+      if (ids) {
+        if (Array.isArray(ids) === false) ids = [ids]
+        found = found.filter(r => { return ids.includes(r.id) })
+      }
 
       // TODO: make find a LOT BETTER
       resolve(found)
