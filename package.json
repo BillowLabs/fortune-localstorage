@@ -1,6 +1,6 @@
 {
   "name": "fortune-localstorage",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fortune.js adapter for local storage",
   "main": "bin/index.js",
   "scripts": {
